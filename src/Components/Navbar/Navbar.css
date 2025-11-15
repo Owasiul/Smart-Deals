@@ -1,0 +1,7 @@
+nav ul li a.active {
+  color: #6a11cb; 
+  font-weight: bold;
+  background-image: linear-gradient(to right, #632ee3, #9f62f2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
