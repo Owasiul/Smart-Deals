@@ -56,7 +56,7 @@ const Navbar = () => {
           </div>
           <Link to="/" className="text-2xl font-semibold">
             Smart
-            <span className="bg-linear-to-r from-violet-700 to-purple-500 bg-clip-text text-transparent ">
+            <span className="">
               Deals
             </span>
           </Link>
