@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, Navigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 
 const Register = () => {
@@ -11,6 +11,7 @@ const Register = () => {
       .then((result) => {
         // console.log(result.user);
         setUser(result.user);
+        Navigate("/");
         // sending user to db
         const newUser = {
           name: result.user.displayName,

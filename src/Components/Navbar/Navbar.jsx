@@ -5,7 +5,7 @@ import { AuthContext } from "../../Context/AuthContext";
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
-  console.log(user);
+  // console.log(user);
   const links = (
     <div className="flex lg:flex-row flex-col lg:items-center gap-5 text-[16px]">
       <li>
