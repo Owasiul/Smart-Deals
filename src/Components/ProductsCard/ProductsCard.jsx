@@ -2,9 +2,8 @@ import React from "react";
 
 const ProductsCard = ({ product }) => {
   const { title, price_min, price_max, image } = product;
-
   return (
-    <div className="md:w-96 w-fit p-4 mx-auto">
+    <div className="md:w-96 w-full h-full p-4 mx-auto">
       <div className="card bg-base-100 shadow-md hover:shadow-lg transition rounded-2xl border border-base-300 h-full">
         <figure className="px-4 pt-4">
           <img
