@@ -1,23 +1,30 @@
-import React, { use } from "react";
-import { Link, Navigate } from "react-router";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 
 const Register = () => {
   const { createUser, googleSignIn, setUser, updateUserData } =
-    use(AuthContext);
+    useContext(AuthContext);
+  const naviagte = useNavigate();
   // google signIn
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
         // console.log(result.user);
-        setUser(result.user);
-        Navigate("/");
+
+        naviagte("/");
         // sending user to db
         const newUser = {
-          name: result.user.displayName,
-          email: result.user.email,
-          image: result.user.photoURL,
+          name: result.user.displayName || "",
+          email: result.user.email || "",
+          image: result.user.photoURL || "",
         };
+        if (!newUser.email) {
+          console.log("user not found ");
+          return;
+        }
+        setUser(result.user);
+
         fetch("http://localhost:3000/users", {
           method: "POST",
           headers: {
@@ -28,6 +35,7 @@ const Register = () => {
           .then((res) => res.json())
           .then((data) => {
             console.log("after posting the data to db", data);
+            naviagte("/");
           });
       })
       .catch((error) => console.log(error));

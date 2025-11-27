@@ -1,14 +1,15 @@
 import React, { use } from "react";
-import { Link, Navigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 
 const Login = () => {
   const { googleSignIn, updateUserData, setUser } = use(AuthContext);
+  const navigate = useNavigate()
   const handleGoogleSignIn = () => {
     googleSignIn().then((userInfo) => {
       const userInformation = userInfo.user;
       if (userInformation) {
-        Navigate("/");
+        navigate("/");
         updateUserData({
           displayName: userInformation.displayName,
           photoURL: userInformation.photoURL,

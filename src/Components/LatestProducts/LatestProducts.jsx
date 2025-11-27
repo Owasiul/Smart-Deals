@@ -1,6 +1,7 @@
 import React, { Suspense, use } from "react";
 import ProductsCard from "../ProductsCard/ProductsCard";
 import Loading from "../Loading/Loading";
+import { Link } from "react-router";
 const LatestProducts = ({ latestProductsPromise }) => {
   const productsData = use(latestProductsPromise);
   //   console.log(productsData);
@@ -21,7 +22,12 @@ const LatestProducts = ({ latestProductsPromise }) => {
           ))}
         </Suspense>
       </div>
-      <button className="btn shadow-lg rounded-sm my-5 lg:px-3 lg:py-4 px-2 py-3 w-[145px]  bg-linear-to-r from-violet-700 to-purple-500 text-white">Show All</button>
+      <Link
+        to="/allproducts"
+        className="btn shadow-lg rounded-sm my-5 lg:px-3 lg:py-4 px-2 py-3 w-[145px]  bg-linear-to-r from-violet-700 to-purple-500 text-white"
+      >
+        Show All
+      </Link>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import bgLeft from "../../assets/bg-hero-left.png";
 import bgRight from "../../assets/bg-hero-right.png";
 import { Search } from "lucide-react";
+import { Link } from "react-router";
 
 const Hero = () => {
   return (
@@ -52,8 +53,15 @@ const Hero = () => {
         </div>
         {/* products btn */}
         <div className="flex flex-row items-center gap-10 my-3">
-          <button className="btn md:px-4 px-3 md:py-3 py-2  bg-linear-to-r from-violet-700 to-purple-500 text-white rounded-sm lg:h-12">Watch all products</button>
-          <button className="btn md:px-4 px-3 md:py-3 py-2  border border-purple-600 text-purple-600 rounded-sm lg:h-12">Post an product</button>
+          <Link
+            to="/allproducts"
+            className="btn md:px-4 px-3 md:py-3 py-2  bg-linear-to-r from-violet-700 to-purple-500 text-white rounded-sm lg:h-12"
+          >
+            Watch all products
+          </Link>
+          <button className="btn md:px-4 px-3 md:py-3 py-2  border border-purple-600 text-purple-600 rounded-sm lg:h-12">
+            Post an product
+          </button>
         </div>
       </div>
     </section>

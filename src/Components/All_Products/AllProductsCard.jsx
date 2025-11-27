@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router";
+import ProductDetails from "./ProductDetails";
 
 const AllProductsCard = ({ productsAll }) => {
-  const { title, price_min, price_max, image } = productsAll;
+  const { title, price_min, price_max, image, _id } = productsAll;
   return (
     <div>
       <div className="md:w-96 w-full p-4 mx-auto overflow-hidden">
@@ -28,9 +30,12 @@ const AllProductsCard = ({ productsAll }) => {
             </p>
 
             <div className="card-actions justify-start mt-3">
-              <button className="btn border-purple-600 text-purple-600 text-center w-full rounded-lg px-4 py-2 flex items-center gap-2">
+              <Link
+                to={`/productdetails/${_id}`}
+                className="btn border-purple-600 text-purple-600 text-center w-full rounded-lg px-4 py-2 flex items-center gap-2"
+              >
                 View Details
-              </button>
+              </Link>
             </div>
           </div>
         </div>
