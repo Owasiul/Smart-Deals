@@ -5,6 +5,19 @@ import { AuthContext } from "../../Context/AuthContext";
 const MyBids = () => {
   const { user } = use(AuthContext);
   const [userBids, setUserBids] = useState([]);
+  const handleRemoveBid = (_id) => {
+    fetch(`http://localhost:3000/bids/${_id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.deletedCount) {
+          const remaingBids = userBids.filter((bid) => bid._id !== _id);
+          setUserBids(remaingBids);
+        }
+      });
+  };
   useEffect(() => {
     if (user?.email) {
       fetch(`http://localhost:3000/bids?email=${user?.email}`)
@@ -111,7 +124,10 @@ const MyBids = () => {
                   {/* ACTION BUTTONS */}
                   <td>
                     <div className="flex gap-2">
-                      <button className="btn border-red-500 text-red-400 ">
+                      <button
+                        onClick={() => handleRemoveBid(bid._id)}
+                        className="btn border-red-500 text-red-400 "
+                      >
                         Remove Bid
                       </button>
                     </div>
