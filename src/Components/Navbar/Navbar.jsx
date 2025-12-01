@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import "./Navbar.css";
 import { AuthContext } from "../../Context/AuthContext";
 
@@ -9,25 +9,25 @@ const Navbar = () => {
   const links = (
     <div className="flex lg:flex-row flex-col lg:items-center gap-5 text-[16px]">
       <li>
-        <Link to="/">Home</Link>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <Link to="/allproducts">All Products</Link>
+        <NavLink to="/allproducts">All Products</NavLink>
       </li>
       <li>
-        <Link to="/myproducts">My Products</Link>
+        <NavLink to="/myproducts">My Products</NavLink>
       </li>
       <li>
-        <Link to="/mybids">My Bids</Link>
+        <NavLink to="/mybids">My Bids</NavLink>
       </li>
       <li>
-        <Link>Create Product</Link>
+        <NavLink to="/createproduct">Create Product</NavLink>
       </li>
     </div>
   );
   return (
-    <nav>
-      <div className="navbar bg-base-100 shadow-sm">
+    <nav className="">
+      <div className=" navbar bg-base-100 shadow-sm px-10">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,7 +54,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link to="/" className="text-2xl font-semibold">
+          <Link to="/" className="text-[30px] font-bold">
             Smart
             <span className="bg-linear-to-r from-violet-700 to-purple-500 bg-clip-text text-transparent">
               Deals

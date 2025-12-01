@@ -11,7 +11,7 @@ const MyBids = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.deletedCount) {
           const remaingBids = userBids.filter((bid) => bid._id !== _id);
           setUserBids(remaingBids);
@@ -20,14 +20,18 @@ const MyBids = () => {
   };
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/bids?email=${user?.email}`)
+      fetch(`http://localhost:3000/bids?email=${user?.email}`, {
+        headers: {
+          authorization: `Bearer ${user.accessToken}`,
+        },
+      })
         .then((res) => res.json())
         .then((data) => {
           // console.log(data);
           setUserBids(data);
         });
     }
-  }, [user?.email]);
+  }, [user]);
   return (
     <div>
       <Navbar />

@@ -6,7 +6,7 @@ const AllProductsCard = ({ productsAll }) => {
   const { title, price_min, price_max, image, _id } = productsAll;
   return (
     <div>
-      <div className="md:w-96 w-full p-4 mx-auto overflow-hidden">
+      <div className="md:w-96 h-full w-full p-4 mx-auto overflow-hidden">
         <div className="card bg-base-100 shadow-md hover:shadow-lg transition rounded-2xl border border-base-300 h-full">
           <figure className="px-4 pt-4">
             <img
