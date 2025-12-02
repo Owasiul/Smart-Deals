@@ -6,7 +6,7 @@ const MyBids = () => {
   const { user } = use(AuthContext);
   const [userBids, setUserBids] = useState([]);
   const handleRemoveBid = (_id) => {
-    fetch(`http://localhost:3000/bids/${_id}`, {
+    fetch(`https://smart-deals-server-pi.vercel.app/bids/${_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -20,11 +20,14 @@ const MyBids = () => {
   };
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/bids?email=${user?.email}`, {
-        headers: {
-          authorization: `Bearer ${user.accessToken}`,
-        },
-      })
+      fetch(
+        `https://smart-deals-server-pi.vercel.app/bids?email=${user?.email}`,
+        {
+          headers: {
+            authorization: `Bearer ${user.accessToken}`,
+          },
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           // console.log(data);

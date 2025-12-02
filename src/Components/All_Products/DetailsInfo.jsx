@@ -44,7 +44,7 @@ const DetailsInfo = ({ details, bids, setBids }) => {
       bid_price: Number(price),
       status: "pending",
     };
-    fetch("http://localhost:3000/bids", {
+    fetch("https://smart-deals-server-pi.vercel.app/bids", {
       method: "POST",
       headers: {
         "content-type": "application/json",

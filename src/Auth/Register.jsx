@@ -25,7 +25,7 @@ const Register = () => {
         }
         setUser(result.user);
 
-        fetch("http://localhost:3000/users", {
+        fetch("https://smart-deals-server-pi.vercel.app/users", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -69,7 +69,7 @@ const Register = () => {
             photoURL: photo,
           });
           event.target.reset();
-          return fetch("http://localhost:3000/users", {
+          return fetch("https://smart-deals-server-pi.vercel.app/users", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",

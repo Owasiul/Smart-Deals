@@ -10,10 +10,12 @@ import AllProducts from "../Components/All_Products/AllProducts";
 import PrivateRoute from "../Context/PrivateRoute";
 import ProductDetails from "../Components/All_Products/ProductDetails";
 import CreateProduct from "../Components/CreateProduct/CreateProduct";
+import Loading from "../Components/Loading/Loading";
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    HydrateFallback: Loading,
     children: [
       {
         index: true,
@@ -24,6 +26,7 @@ export const router = createBrowserRouter([
   {
     path: "/auth",
     Component: Auth,
+    HydrateFallback: Loading,
     children: [
       {
         path: "/auth/login",
@@ -38,10 +41,12 @@ export const router = createBrowserRouter([
   {
     path: "/allproducts",
     Component: AllProducts,
-    loader: () => fetch("http://localhost:3000/products"),
+    HydrateFallback: Loading,
+    loader: () => fetch("https://smart-deals-server-pi.vercel.app/products"),
   },
   {
     path: "/myproducts",
+    HydrateFallback: Loading,
     element: (
       <PrivateRoute>
         <MyProducts />
@@ -50,6 +55,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/mybids",
+    HydrateFallback: Loading,
     element: (
       <PrivateRoute>
         <MyBids />
@@ -58,7 +64,8 @@ export const router = createBrowserRouter([
   },
   {
     path: "/productdetails/:id",
-    loader: () => fetch(`http://localhost:3000/products`),
+    HydrateFallback: Loading,
+    loader: () => fetch(`https://smart-deals-server-pi.vercel.app/products`),
     element: (
       <PrivateRoute>
         <ProductDetails />
@@ -67,6 +74,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/createproduct",
+    HydrateFallback: Loading,
     element: (
       <PrivateRoute>
         {" "}

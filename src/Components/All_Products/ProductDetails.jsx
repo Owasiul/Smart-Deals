@@ -19,7 +19,7 @@ const ProductDetails = () => {
       return;
     }
     axios
-      .get(`http://localhost:3000/products/bids/${id}`, {
+      .get(`https://smart-deals-server-pi.vercel.app/products/bids/${id}`, {
         headers: { authorization: `Bearer ${user?.accessToken}` },
       })
       .then((res) => {
@@ -35,7 +35,7 @@ const ProductDetails = () => {
   //     console.log("no id found");
   //     return;
   //   }
-  //   fetch(`http://localhost:3000/products/bids/${id}`, {
+  //   fetch(`https://smart-deals-server-pi.vercel.appproducts/bids/${id}`, {
   //     headers: { authorization: `Bearer ${user.accessToken}` },
   //   })
   //     .then((res) => res.json())

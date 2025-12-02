@@ -4,7 +4,7 @@ import LatestProducts from "../../Components/LatestProducts/LatestProducts";
 import { Toaster } from "react-hot-toast";
 
 const latestProductsPromise = fetch(
-  "http://localhost:3000/latestproducts"
+  "https://smart-deals-server-pi.vercel.app/latestproducts"
 ).then((res) => res.json());
 const Home = () => {
   return (
